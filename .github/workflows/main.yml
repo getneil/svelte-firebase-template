@@ -20,7 +20,9 @@ jobs:
             ./pnpm
             ./.pnpm-store
             ./node_modules
-            .svelte-kit
+            ./app/node_modules
+            ./app/.svelte-kit
+            ./functions/node_modules
       - run: tea -SE xc build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:

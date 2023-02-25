@@ -15,11 +15,13 @@ jobs:
             ./pnpm
             ./.pnpm-store
             ./node_modules
-            .svelte-kit
+            ./app/node_modules
+            ./app/.svelte-kit
+            ./functions/node_modules
       - name: install app dependencies
         run: tea -ES xc setup
       - name: lint
-        run: tea -ES pnpm lint
+        run: tea -E pnpm -r lint
       - name: build
         run: tea -ES xc build
   build_and_preview:
@@ -36,7 +38,9 @@ jobs:
             ./pnpm
             ./.pnpm-store
             ./node_modules
-            .svelte-kit
+            ./app/node_modules
+            ./app/.svelte-kit
+            ./functions/node_modules
       - run: tea -SE xc build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:

@@ -35,6 +35,11 @@ pnpm install
 pnpm --filter app exec pnpm dev --open
 ```
 
+## Lint
+```sh
+pnpm -r exec pnpm lint
+```
+
 You can preview the production build with `npm run preview`.
 
 # Dependencies

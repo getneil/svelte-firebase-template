@@ -25,7 +25,7 @@ pnpm install
 
 ```sh
 pnpm install
-pnpm build
+pnpm -r exec pnpm lint
 ```
 
 ## Dev

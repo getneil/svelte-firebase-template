@@ -22,3 +22,25 @@ jobs:
         run: tea -ES pnpm lint
       - name: build
         run: tea -ES xc build
+  build_and_preview:
+    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: teaxyz/setup@v0
+      - uses: actions/checkout@v3
+      - name: cache node_modules
+        uses: actions/cache@v3
+        with:
+          key: ci-pnpm
+          path: |
+            ./pnpm
+            ./.pnpm-store
+            ./node_modules
+            .svelte-kit
+      - run: tea -SE xc build
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FREEDIVE_SUPERHOME }}'
+          projectId: freedive-superhome
+

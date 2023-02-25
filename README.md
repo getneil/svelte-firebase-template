@@ -32,7 +32,7 @@ pnpm build
 
 ```sh
 pnpm install
-pnpm dev --open
+pnpm --filter app exec pnpm dev --open
 ```
 
 You can preview the production build with `npm run preview`.

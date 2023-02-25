@@ -39,10 +39,11 @@ You can preview the production build with `npm run preview`.
 
 # Dependencies
 
-| Project    | Version   |
-| ---------- | --------- |
-| nodejs.org | =18.13.0  |
-| pnpm.io    | >=7.27    |
-| xcfile.dev | >=0.0.110 |
+| Project     | Version   |
+| ----------- | --------- |
+| nodejs.org  | =18.13.0  |
+| pnpm.io     | >=7.27    |
+| xcfile.dev  | >=0.0.110 |
+| git-scm.org | >=2.39.1  |
 
 [`xc`]: https://xcfile.dev

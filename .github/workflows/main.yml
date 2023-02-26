@@ -18,6 +18,7 @@ jobs:
           echo $FIREBASE_SERVICE_ACCOUNT >> sa.json
           export GOOGLE_APPLICATION_CREDENTIALS=$WORKSPACE/sa.json
           tea -SE xc build
+          tea -E npm install
           tea -E yarn firebase deploy --project $FIREBASE_PROJECT  --debug
         env:
           FIREBASE_SERVICE_ACCOUNT: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FREEDIVE_SUPERHOME }}'

@@ -18,21 +18,39 @@ The following can be run with [`xc`], eg. `xc build`
 ## Setup
 
 ```sh
-pnpm install
+yarn
 ```
 
 ## Build
 
 ```sh
-pnpm install
-pnpm build
+yarn
+yarn workspace functions run build
+yarn workspace app run build
 ```
 
 ## Dev
 
 ```sh
-pnpm install
-pnpm dev --open
+yarn
+yarn workspace app run dev
+```
+## Format
+```sh
+yarn workspaces foreach run format
+```
+
+## Lint
+```sh
+yarn workspaces foreach run lint
+```
+
+## Deploy
+```sh
+yarn
+yarn workspace functions run build
+yarn workspace app run build
+./node_modules/.bin/firebase deploy
 ```
 
 You can preview the production build with `npm run preview`.
@@ -42,7 +60,8 @@ You can preview the production build with `npm run preview`.
 | Project     | Version   |
 | ----------- | --------- |
 | nodejs.org  | =18.13.0  |
-| pnpm.io     | >=7.27    |
+| npmjs.com   | =9.2.0    |
+| yarnpkg.com | >=3.4.1   |
 | xcfile.dev  | >=0.0.110 |
 | git-scm.org | >=2.39.1  |
 

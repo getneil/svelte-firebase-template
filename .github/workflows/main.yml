@@ -13,11 +13,7 @@ jobs:
       - uses: teaxyz/setup@v0
       - uses: actions/checkout@v3
       - uses: c-hive/gha-yarn-cache@v2
-      - run: |
-          tea -SE xc build
-          tea -SE yarn firebase deploy --only functions
-        env:
-          FIREBASE_SERVICE_ACCOUNT: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FREEDIVE_SUPERHOME }}'
+      - run: tea -SE xc build
 
       - uses: getneil/action-hosting-deploy@v0
         with:

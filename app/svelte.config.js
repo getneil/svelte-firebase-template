@@ -11,7 +11,10 @@ const config = {
 	kit: {
 		adapter: firebase({
 			firebaseJsonPath: '../firebase.json',
-			target: 'ssrServer'
+			// the "target" value here should be the {{domain}}.web.app / {{domain}}.firebaseapp.com
+			// in the firebase console hosting page
+			// update also the firebase.json:hosting.site to be equal to the {{domain}}
+			target: 'freedive-superhome'
 		})
 	}
 };

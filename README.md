@@ -31,8 +31,8 @@ npm run build --workspaces
 ## Dev
 
 ```sh
-pnpm install
-pnpm run dev --workspace=app
+npm install
+npm run dev --workspace=app
 ```
 
 ## Lint

@@ -10,19 +10,37 @@ jobs:
   build_and_deploy:
     runs-on: macos-latest
     steps:
-      - uses: teaxyz/setup@v0
+      # - uses: teaxyz/setup@v0
       - uses: actions/checkout@v3
-      - uses: c-hive/gha-yarn-cache@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'yarn'
+      # - uses: c-hive/gha-yarn-cache@v2
       - name: build and deploy
         run: |
           echo $FIREBASE_SERVICE_ACCOUNT >> sa.json
           export GOOGLE_APPLICATION_CREDENTIALS=$WORKSPACE/sa.json
-          tea -SE xc build 
-          tea -E npx browserslist@latest --update-db
-          tea -E npm install
-          tea -E yarn firebase deploy --project $FIREBASE_PROJECT  --debug
+          yarn
+          yarn workspace functions run build
+          yarn workspace app run build
+          yarn firebase deploy --project $FIREBASE_PROJECT  --debug
         env:
           FIREBASE_SERVICE_ACCOUNT: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FREEDIVE_SUPERHOME }}'
           FIREBASE_PROJECT: freedive-superhome
           WORKSPACE: ${{ github.workspace }}
           FIREBASE_DEPLOY_AGENT: "action-hosting-deploy"
+      # - name: build and deploy
+      #   run: |
+      #     echo $FIREBASE_SERVICE_ACCOUNT >> sa.json
+      #     export GOOGLE_APPLICATION_CREDENTIALS=$WORKSPACE/sa.json
+      #     tea -SE xc build 
+      #     tea -E npx browserslist@latest --update-db
+      #     tea -E npm install
+      #     tea -E yarn firebase deploy --project $FIREBASE_PROJECT  --debug
+      #   env:
+      #     FIREBASE_SERVICE_ACCOUNT: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FREEDIVE_SUPERHOME }}'
+      #     FIREBASE_PROJECT: freedive-superhome
+      #     WORKSPACE: ${{ github.workspace }}
+      #     FIREBASE_DEPLOY_AGENT: "action-hosting-deploy"

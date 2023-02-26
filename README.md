@@ -45,6 +45,14 @@ yarn workspaces foreach run format
 yarn workspaces foreach run lint
 ```
 
+## Deploy
+```sh
+yarn
+yarn workspace functions run build
+yarn workspace app run build
+./node_modules/.bin/firebase deploy
+```
+
 You can preview the production build with `npm run preview`.
 
 # Dependencies
@@ -52,6 +60,7 @@ You can preview the production build with `npm run preview`.
 | Project     | Version   |
 | ----------- | --------- |
 | nodejs.org  | =18.13.0  |
+| npmjs.com   | =9.2.0    |
 | yarnpkg.com | >=3.4.1   |
 | xcfile.dev  | >=0.0.110 |
 | git-scm.org | >=2.39.1  |

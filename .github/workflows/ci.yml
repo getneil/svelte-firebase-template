@@ -14,18 +14,18 @@ jobs:
         run: tea -E npm run lint --workspaces
       - name: build
         run: tea -ES xc build
-  build_and_preview:
-    needs: [test]
-    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: teaxyz/setup@v0
-      - uses: actions/checkout@v3
-      - uses: c-hive/gha-yarn-cache@v2
-      - run: tea -SE xc build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FREEDIVE_SUPERHOME }}'
-          projectId: freedive-superhome
+  # build_and_preview:
+  #   needs: [test]
+  #   if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: teaxyz/setup@v0
+  #     - uses: actions/checkout@v3
+  #     - uses: c-hive/gha-yarn-cache@v2
+  #     - run: tea -SE xc build
+  #     - uses: FirebaseExtended/action-hosting-deploy@v0
+  #       with:
+  #         repoToken: '${{ secrets.GITHUB_TOKEN }}'
+  #         firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FREEDIVE_SUPERHOME }}'
+  #         projectId: freedive-superhome
 

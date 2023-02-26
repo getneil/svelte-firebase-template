@@ -25,7 +25,8 @@ yarn
 
 ```sh
 yarn
-yarn workspaces foreach run build
+yarn workspace functions run build
+yarn workspace app run build
 ```
 
 ## Dev

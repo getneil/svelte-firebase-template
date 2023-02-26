@@ -2,16 +2,10 @@
   "name": "svelte-firebase",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "workspaces": {
-      "packages": [
-          "app",
-          "functions"
-      ]
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "workspaces": [
+    "functions",
+    "app"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",

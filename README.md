@@ -18,26 +18,26 @@ The following can be run with [`xc`], eg. `xc build`
 ## Setup
 
 ```sh
-pnpm install
+npm install
 ```
 
 ## Build
 
 ```sh
-pnpm install
-pnpm -r exec pnpm lint
+npm install
+npm run build --workspaces
 ```
 
 ## Dev
 
 ```sh
 pnpm install
-pnpm --filter app exec pnpm dev --open
+pnpm run dev --workspace=app
 ```
 
 ## Lint
 ```sh
-pnpm -r exec pnpm lint
+npm run lint --workspaces
 ```
 
 You can preview the production build with `npm run preview`.
@@ -46,8 +46,8 @@ You can preview the production build with `npm run preview`.
 
 | Project     | Version   |
 | ----------- | --------- |
-| nodejs.org  | =16.19.1  |
-| pnpm.io     | >=7.27    |
+| nodejs.org  | =18.13.0  |
+| npmjs.com   | >=9.5.0   |
 | xcfile.dev  | >=0.0.110 |
 | git-scm.org | >=2.39.1  |
 

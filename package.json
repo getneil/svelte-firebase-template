@@ -11,11 +11,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/caniuse-lite": "^1",
     "esbuild": "^0.17.10",
     "firebase-tools": "^11.24.0"
   },
   "dependencies": {
     "@types/tmp": "^0.2.3",
+    "caniuse-lite": "^1.0.30001458",
     "tmp": "^0.2.1"
   }
 }

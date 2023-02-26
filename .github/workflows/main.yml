@@ -13,7 +13,10 @@ jobs:
       - uses: teaxyz/setup@v0
       - uses: actions/checkout@v3
       - uses: c-hive/gha-yarn-cache@v2
-      - run: tea -SE xc build
+      - run: |
+          tea -SE xc build
+          ./node_modules/.bin/firebase deploy --only functions
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

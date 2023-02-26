@@ -13,5 +13,9 @@
   "devDependencies": {
     "esbuild": "^0.17.10",
     "firebase-tools": "^11.24.0"
+  },
+  "dependencies": {
+    "@types/tmp": "^0.2.3",
+    "tmp": "^0.2.1"
   }
 }

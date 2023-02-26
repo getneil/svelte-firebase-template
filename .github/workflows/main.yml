@@ -13,11 +13,13 @@ jobs:
       - uses: teaxyz/setup@v0
       - uses: actions/checkout@v3
       - uses: c-hive/gha-yarn-cache@v2
-      - run: tea -SE xc build
-
-      - uses: getneil/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FREEDIVE_SUPERHOME }}'
-          channelId: live
-          projectId: freedive-superhome
+      - run: |
+          echo $FIREBASE_SERVICE_ACCOUNT >> sa.json
+          GOOGLE_APPLICATION_CREDENTIALS=$WORKSPACE/sa.json
+          tea -SE xc build
+          tea npx firebase-tools@latest deploy  --project $FIREBASE_PROJECT  --debug
+        env:
+          FIREBASE_SERVICE_ACCOUNT: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FREEDIVE_SUPERHOME }}'
+          FIREBASE_PROJECT: freedive-superhome
+          WORKSPACE: ${{ github.workspace }}
+          FIREBASE_DEPLOY_AGENT: "action-hosting-deploy"

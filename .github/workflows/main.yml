@@ -8,7 +8,7 @@ name: Deploy to Firebase Hosting on merge
       - main
 jobs:
   build_and_deploy:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: teaxyz/setup@v0
       - uses: actions/checkout@v3
@@ -17,7 +17,7 @@ jobs:
         run: |
           echo $FIREBASE_SERVICE_ACCOUNT >> sa.json
           export GOOGLE_APPLICATION_CREDENTIALS=$WORKSPACE/sa.json
-          tea -SE xc build
+          tea -SE xc buildnpx browserslist@latest --update-db
           tea -E npm install
           tea -E yarn firebase deploy --project $FIREBASE_PROJECT  --debug
         env:

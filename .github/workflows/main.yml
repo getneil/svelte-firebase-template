@@ -17,7 +17,7 @@ jobs:
           echo $FIREBASE_SERVICE_ACCOUNT >> sa.json
           GOOGLE_APPLICATION_CREDENTIALS=$WORKSPACE/sa.json
           tea -SE xc build
-          tea npx firebase-tools@latest deploy  --project $FIREBASE_PROJECT  --debug
+          tea -E npx firebase-tools@latest deploy  --project $FIREBASE_PROJECT  --debug
         env:
           FIREBASE_SERVICE_ACCOUNT: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FREEDIVE_SUPERHOME }}'
           FIREBASE_PROJECT: freedive-superhome

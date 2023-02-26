@@ -15,9 +15,11 @@ jobs:
       - uses: c-hive/gha-yarn-cache@v2
       - run: |
           tea -SE xc build
-          ./node_modules/.bin/firebase deploy --only functions
+          tea -SE yarn firebase deploy --only functions
+        env:
+          FIREBASE_SERVICE_ACCOUNT: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FREEDIVE_SUPERHOME }}'
 
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - uses: getneil/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FREEDIVE_SUPERHOME }}'

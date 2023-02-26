@@ -13,11 +13,13 @@ jobs:
       - uses: teaxyz/setup@v0
       - uses: actions/checkout@v3
       - uses: c-hive/gha-yarn-cache@v2
-      - run: |
+      - name: build and deploy
+        run: |
           echo $FIREBASE_SERVICE_ACCOUNT >> sa.json
           GOOGLE_APPLICATION_CREDENTIALS=$WORKSPACE/sa.json
+          cat $GOOGLE_APPLICATION_CREDENTIALS
           tea -SE xc build
-          tea -E npx firebase-tools@latest deploy  --project $FIREBASE_PROJECT  --debug
+          tea -E yarn firebase deploy --project $FIREBASE_PROJECT  --debug
         env:
           FIREBASE_SERVICE_ACCOUNT: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FREEDIVE_SUPERHOME }}'
           FIREBASE_PROJECT: freedive-superhome

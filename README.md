@@ -18,26 +18,26 @@ The following can be run with [`xc`], eg. `xc build`
 ## Setup
 
 ```sh
-npm install
+yarn
 ```
 
 ## Build
 
 ```sh
-npm install
-npm run build --workspaces
+yarn
+yarn workspaces run build
 ```
 
 ## Dev
 
 ```sh
-npm install
-npm run dev --workspace=app
+yarn
+yarn workspace app run dev
 ```
 
 ## Lint
 ```sh
-npm run lint --workspaces
+yarn workspaces run lint
 ```
 
 You can preview the production build with `npm run preview`.
@@ -47,7 +47,7 @@ You can preview the production build with `npm run preview`.
 | Project     | Version   |
 | ----------- | --------- |
 | nodejs.org  | =18.13.0  |
-| npmjs.com   | >=9.5.0   |
+| yarnpkg.com | >=3.4.1   |
 | xcfile.dev  | >=0.0.110 |
 | git-scm.org | >=2.39.1  |
 

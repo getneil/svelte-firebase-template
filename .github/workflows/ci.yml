@@ -7,15 +7,7 @@ jobs:
     steps:
       - uses: teaxyz/setup@v0
       - uses: actions/checkout@v3
-      - name: cache node_modules
-        uses: actions/cache@v3
-        with:
-          key: npm cache
-          path: |
-            ./node_modules
-            ./app/node_modules
-            ./app/.svelte-kit
-            ./functions/node_modules
+      - uses: c-hive/gha-yarn-cache@v2
       - name: install app dependencies
         run: tea -ES xc setup
       - name: lint
@@ -29,15 +21,7 @@ jobs:
     steps:
       - uses: teaxyz/setup@v0
       - uses: actions/checkout@v3
-      - name: cache node_modules
-        uses: actions/cache@v3
-        with:
-          key: npm cache
-          path: |
-            ./node_modules
-            ./app/node_modules
-            ./app/.svelte-kit
-            ./functions/node_modules
+      - uses: c-hive/gha-yarn-cache@v2
       - run: tea -SE xc build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:

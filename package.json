@@ -2,6 +2,7 @@
   "name": "svelte-firebase",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "workspaces": [
     "functions",
     "app"

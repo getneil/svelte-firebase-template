@@ -15,10 +15,8 @@ jobs:
       - name: cache node_modules
         uses: actions/cache@v3
         with:
-          key: main-pnpm
+          key: npm cache
           path: |
-            ./pnpm
-            ./.pnpm-store
             ./node_modules
             ./app/node_modules
             ./app/.svelte-kit

@@ -982,7 +982,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/cors@npm:^2.8.5":
+"@types/cors@npm:^2.8.13, @types/cors@npm:^2.8.5":
   version: 2.8.13
   resolution: "@types/cors@npm:2.8.13"
   dependencies:
@@ -4027,8 +4027,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "functions@workspace:functions"
   dependencies:
+    "@types/cors": ^2.8.13
     "@typescript-eslint/eslint-plugin": ^5.12.0
     "@typescript-eslint/parser": ^5.12.0
+    cors: ^2.8.5
     eslint: ^8.28.0
     eslint-config-google: ^0.14.0
     eslint-config-prettier: ^8.5.0

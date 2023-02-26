@@ -25,8 +25,7 @@ yarn
 
 ```sh
 yarn
-yarn workspace functions run build
-yarn workspace app run build
+yarn workspaces foreach run build
 ```
 
 ## Dev
@@ -35,10 +34,14 @@ yarn workspace app run build
 yarn
 yarn workspace app run dev
 ```
+## Format
+```sh
+yarn workspaces foreach run format
+```
 
 ## Lint
 ```sh
-yarn workspaces run lint
+yarn workspaces foreach run lint
 ```
 
 You can preview the production build with `npm run preview`.
